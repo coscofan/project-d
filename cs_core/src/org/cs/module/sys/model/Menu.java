@@ -25,7 +25,6 @@ public class Menu {
     private String url;
     private String icon;
     private Integer pid;
-    private Integer status;
     private Boolean display;
     private String attr1;
     private String attr2;
@@ -33,6 +32,8 @@ public class Menu {
     private String attr4;
     private String attr5;
     private Date createDate;
+    private Integer weight;
+    private String cls;
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -79,15 +80,6 @@ public class Menu {
 
     public void setPid(Integer pid) {
         this.pid = pid;
-    }
-
-    @Column(name = "status", columnDefinition="tinyint(1)")
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
     }
 
     @Column(name = "display", columnDefinition="bit(1)")
@@ -152,6 +144,24 @@ public class Menu {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
+	
+	@Column(name = "weight", columnDefinition="int default 0")
+	public Integer getWeight() {
+		return weight;
+	}
+
+	public void setWeight(Integer weight) {
+		this.weight = weight;
+	}
+	
+	@Column(name="cls", columnDefinition="varchar(24) default ''")
+	public String getCls() {
+		return cls;
+	}
+
+	public void setCls(String cls) {
+		this.cls = cls;
+	}
 
 	@Override
     public boolean equals(Object o) {
@@ -170,7 +180,6 @@ public class Menu {
         if (icon != null ? !icon.equals(menu.icon) : menu.icon != null) return false;
         if (name != null ? !name.equals(menu.name) : menu.name != null) return false;
         if (pid != null ? !pid.equals(menu.pid) : menu.pid != null) return false;
-        if (status != null ? !status.equals(menu.status) : menu.status != null) return false;
         if (url != null ? !url.equals(menu.url) : menu.url != null) return false;
 
         return true;
@@ -183,7 +192,6 @@ public class Menu {
         result = 31 * result + (url != null ? url.hashCode() : 0);
         result = 31 * result + (icon != null ? icon.hashCode() : 0);
         result = 31 * result + (pid != null ? pid.hashCode() : 0);
-        result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (display != null ? display.hashCode() : 0);
         result = 31 * result + (attr1 != null ? attr1.hashCode() : 0);
         result = 31 * result + (attr2 != null ? attr2.hashCode() : 0);

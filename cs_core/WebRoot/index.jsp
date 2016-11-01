@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="common/head.jsp"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -12,20 +14,7 @@
     <title>H+ 后台主题UI框架 - 首页示例二</title>
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
-
-    <link rel="shortcut icon" href="../res/favicon.ico"> 
-    <link href="../res/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../res/css/font-awesome.css" rel="stylesheet">
-
-    <!-- Morris -->
-    <link href="../res/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-
-    <!-- Gritter -->
-    <link href="../res/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
-
-    <link href="../res/css/animate.css" rel="stylesheet">
-    <link href="../res/css/style.css" rel="stylesheet">
-
+   
 </head>
 
 <body class="gray-bg">
@@ -466,42 +455,42 @@
     </div>
 
     <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+<!--     <script src="js/jquery.min.js?v=2.1.4"></script> -->
+<!--     <script src="js/bootstrap.min.js?v=3.3.6"></script> -->
 
 
 
     <!-- Flot -->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="js/plugins/flot/jquery.flot.symbol.js"></script>
+    <script src="../res/js/plugins/flot/jquery.flot.js"></script>
+    <script src="../res/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="../res/js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="../res/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="../res/js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="../res/js/plugins/flot/jquery.flot.symbol.js"></script>
 
     <!-- Peity -->
-    <script src="js/plugins/peity/jquery.peity.min.js"></script>
-    <script src="js/demo/peity-demo.js"></script>
+    <script src="../res/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="../res/js/demo/peity-demo.js"></script>
 
     <!-- 自定义js -->
-    <script src="js/content.js?v=1.0.0"></script>
+    <script src="../res/js/content.js?v=1.0.0"></script>
 
 
     <!-- jQuery UI -->
     <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- Jvectormap -->
-    <script src="js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="../res/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="../res/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 
     <!-- EayPIE -->
-    <script src="js/plugins/easypiechart/jquery.easypiechart.js"></script>
+    <script src="../res/js/plugins/easypiechart/jquery.easypiechart.js"></script>
 
     <!-- Sparkline -->
-    <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="../res/js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
     <!-- Sparkline demo data  -->
-    <script src="js/demo/sparkline-demo.js"></script>
+    <script src="../res/js/demo/sparkline-demo.js"></script>
 
     <script>
         $(document).ready(function () {

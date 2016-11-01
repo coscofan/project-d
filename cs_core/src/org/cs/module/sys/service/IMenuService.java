@@ -9,4 +9,6 @@ public interface IMenuService extends IBaseService<Menu> {
 
 	public List<Menu> getSuperMenuList();
 	
+	public List<Menu> getSecMenuList();
+	
 }

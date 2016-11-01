@@ -12,7 +12,13 @@ public class MenuService extends BaseService<Menu> implements IMenuService {
 
 	@Override
 	public List<Menu> getSuperMenuList(){
-		return (List<Menu>) this.findByHql("from Menu where pid = 0", null);
+		return (List<Menu>) this.findByHql("from Menu where pid = 0 and display = true order by weight", null);
 	}
+	
+	@Override
+	public List<Menu> getSecMenuList(){
+		return (List<Menu>) this.findByHql("from Menu where pid <> 0 and display = true order by weight", null);
+	}
+	
 	
 }

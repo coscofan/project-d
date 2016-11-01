@@ -17,6 +17,8 @@ public class LoginCtl extends BaseCtl{
 	@Autowired 
 	private IMenuService menuService;
 	
+	
+	
 	@RequestMapping("index")
 	public String index(){
 		return "index";
@@ -30,11 +32,20 @@ public class LoginCtl extends BaseCtl{
 	
 	
 	@RequestMapping("main")
-	public String main(String account, String pwd, String code,  ModelMap mm){
+	public String main(ModelMap mm){
+		
+		// 初始化左侧菜单信息
+		
 		
 		 return "main";
 	}
 	
+	
+	@RequestMapping("logout")
+	public String login(ModelMap mm){
+		
+		 return "redirect:/";
+	}
 	
 	
 	
