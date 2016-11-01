@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="propertyOverrider"
+		  class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+		  <property name="locations">
+		  	<list>
+		  		<value>classpath:conf/Proxool.properties</value>
+		  	</list>
+		  </property>
+	</bean>
+	<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<!-- database driver name -->
+		<property name="driver" value="${dataSource.driver}"/>
+		<!-- driver url, 连接串必须确定用户名和密码 -->
+		<property name="driverUrl" value="${dataSource.driverUrl}"/>
+		<!-- database login user, proxool没有使用，但是不能没有-->
+		<property name="user" value="${dataSource.user}"/>
+		<!-- database login password, proxool没有使用，但是不能没有 -->
+		<property name="password" value="${dataSource.password}"/>
+		<!-- database alias -->
+		<property name="alias" value="${dataSource.alias}"/>
+		<!-- proxool自动侦察各个连接状态的时间间隔(毫秒),侦察到空闲的连接就马上回收,超时的销毁 默认30秒） -->
+		<property name="houseKeepingSleepTime" value="${dataSource.houseKeepingSleepTime}"/>
+		<!-- 最少保持的空闲连接数 （默认2个） -->
+		<property name="prototypeCount" value="${dataSource.prototypeCount}"/>
+		<!-- 最大连接数 （默认5个） -->
+		<property name="maximumConnectionCount" value="${dataSource.maximumConnectionCount}"/>
+		<!-- 最小连接数 （默认2个） -->
+		<property name="minimumConnectionCount" value="${dataSource.minimumConnectionCount}"/>
+		<!-- 最大连接时间 -->
+		<property name="maximumActiveTime" value="${dataSource.maximumActiveTime}"/>
+		<property name="trace" value="${dataSource.trace}"/>
+		<property name="verbose" value="${dataSource.verbose}"/>
+		<property name="testBeforeUse" value="true"/>
+		<property name="testAfterUse" value="true"/>
+<!-- 		<property name="house-keeping-test-sql" value="SELECT CURRENT_USER"/> -->
+		<property name="houseKeepingTestSql" value="select CURRENT_DATE" />
+		
+	</bean> 
+</beans>
