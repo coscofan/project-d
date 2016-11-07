@@ -14,6 +14,15 @@
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
+    
+  	<script src="res/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="res/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="res/js/plugins/layer/layer.min.js"></script>
+    <!-- 自定义js -->
+	<script src="res/js/hplus.js"></script>
+	<script type="text/javascript" src="res/js/contabs.js"></script>
+    
+    <base href=" <%=basePath%>" /> 
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
@@ -26,7 +35,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <span><img alt="image" class="img-circle" src="../res/img/profile_small.jpg" /></span>
+                            <span><img alt="image" class="img-circle" src="res/img/profile_small.jpg" /></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
@@ -43,7 +52,7 @@
                                 <li><a class="J_menuItem" href="mailbox.html">信箱</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="logout.cs">安全退出</a>
+                                <li><a href="mgr/logout.cs">安全退出</a>
                                 </li>
                             </ul>
                         </div>
@@ -57,6 +66,9 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="menu/list.cs">菜单列表</a>
+                            </li>
                             <li>
                                 <a class="J_menuItem" href="graph_echarts.html">百度ECharts</a>
                             </li>
@@ -104,7 +116,7 @@
                                 <li class="m-t-xs">
                                     <div class="dropdown-messages-box">
                                         <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="../res/img/a7.jpg">
+                                            <img alt="image" class="img-circle" src="res/img/a7.jpg">
                                         </a>
                                         <div class="media-body">
                                             <small class="pull-right">46小时前</small>
@@ -118,7 +130,7 @@
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="../res/img/a4.jpg" />
+                                            <img alt="image" class="img-circle" src="res/img/a4.jpg" />
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right text-navy">25小时前</small>
@@ -206,10 +218,10 @@
                         </li>
                     </ul>
                 </div>
-                <a href=logout.cs class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+                <a href="mgr/logout.cs" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index.cs" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="mgr/index.cs" frameborder="0" data-id="index_v1.html" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2014-2015 <a href="#" target="_blank">zihan's blog</a>
@@ -340,7 +352,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="../res/img/a2.jpg" />
+                                        <img alt="image" class="img-circle message-avatar" src="res/img/a2.jpg" />
                                     </div>
                                     <div class="media-body">
                                         HCY48之音乐大魔王会员专属皮肤已上线，快来一键换装拥有他，宣告你对华晨宇的爱吧！
@@ -383,7 +395,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="../res/img/a8.jpg" />
+                                        <img alt="image" class="img-circle message-avatar" src="res/img/a8.jpg" />
                                     </div>
                                     <div class="media-body">
 
@@ -396,7 +408,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="../res/img/a7.jpg" />
+                                        <img alt="image" class="img-circle message-avatar" src="res/img/a7.jpg" />
                                     </div>
                                     <div class="media-body">
                                         这哥们的新视频又来了，创意杠杠滴，帅炸了！
@@ -408,7 +420,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="../res/img/a3.jpg" />
+                                        <img alt="image" class="img-circle message-avatar" src="res/img/a3.jpg" />
 
                                         <div class="m-t-xs">
                                             <i class="fa fa-star text-warning"></i>
@@ -426,7 +438,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="../res/img/a4.jpg" />
+                                        <img alt="image" class="img-circle message-avatar" src="res/img/a4.jpg" />
                                     </div>
                                     <div class="media-body">
                                         我发起了一个投票 【你认为下午大盘会翻红吗？】
