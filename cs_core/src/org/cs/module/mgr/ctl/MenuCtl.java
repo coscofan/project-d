@@ -27,8 +27,6 @@ public class MenuCtl extends BaseCtl {
 	
 	@RequestMapping("list")
 	public String list(ModelMap mm){
-//		List<Menu> superMenuList = this.menuService.getSuperMenuList();
-//		mm.put("superMenuList", superMenuList);
 		return "menu/list";	
 		
 	}

@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
+	<base href=" <%=basePath%>" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="renderer" content="webkit" />
 
@@ -22,7 +23,7 @@
 	<script src="res/js/hplus.js"></script>
 	<script type="text/javascript" src="res/js/contabs.js"></script>
     
-    <base href=" <%=basePath%>" /> 
+    
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
