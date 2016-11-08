@@ -118,6 +118,18 @@ public class BaseService<T> implements IBaseService<T> {
 		// TODO Auto-generated method stub
 		return findByHql(hql, null, params);
 	}
+	
+	@Override
+	public <E> E findBySql(String sql, Class<E> clazz) {
+		// TODO Auto-generated method stub
+		return this.baseDao.findBySql(sql, clazz);
+	}
+
+	@Override
+	public List<?> findBySql(String sql) {
+		// TODO Auto-generated method stub
+		return this.baseDao.findBySql(sql, null);
+	}
 
 	public JSONObject getJson(int ret, Object result, String msg) {
 		JSONObject json = new JSONObject();

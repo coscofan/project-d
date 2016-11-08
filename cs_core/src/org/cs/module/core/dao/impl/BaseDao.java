@@ -403,4 +403,13 @@ public class BaseDao<T> implements IBaseDao<T> {
 		return jdbcTemplate.queryForObject(sql, clazz);
 	}
 
+	@Override
+	public List<?> findBySql(String sql) {
+		// TODO Auto-generated method stub
+		return this.jdbcTemplate.queryForList(sql);
+//		return this.jdbcTemplate.queryForList(sql);
+	}
+	
+	
+
 }

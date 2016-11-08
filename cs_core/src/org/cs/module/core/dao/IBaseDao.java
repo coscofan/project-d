@@ -152,7 +152,7 @@ public interface IBaseDao<T> {
 	 * @return
 	 * @return: Pagination
 	 */
-	Pager findPageBySql(String sql, Pager page, Map<String, Object> params);
+	Pager findPageBySql(final String sql, Pager page, Map<String, Object> params);
 
 	/**
 	 * 根据sql查询构造一个map,如果不存在返回null
@@ -195,7 +195,10 @@ public interface IBaseDao<T> {
 	 * @return
 	 * @return: int
 	 */
-	public int sqlUpdate(String sql, Object... args);
+	public int sqlUpdate(final String sql, Object... args);
+	
+	
+	public List<?> findBySql(String sql);
 	
 
 	

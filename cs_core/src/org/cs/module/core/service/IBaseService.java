@@ -42,4 +42,8 @@ public interface IBaseService<T> {
 	List<?> findByHql(String hql, Pager page, Map<String, Object> params);
 	
 	List<?> findByHql(String hql,Map<String, Object> params);
+	
+	public <E> E findBySql(String sql, Class<E> clazz);
+	
+	public List<?> findBySql(String sql);
 }
