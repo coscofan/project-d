@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.cs.module.core.ctl.BaseCtl;
 import org.cs.module.sys.model.Menu;
 import org.cs.module.sys.service.IMenuService;
+import org.cs.util.Pager;
 import org.cs.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,8 @@ public class MenuCtl extends BaseCtl {
 	
 	@RequestMapping("list")
 	public String list(ModelMap mm){
+//		List<Menu> superMenuList = this.menuService.getSuperMenuList();
+//		mm.put("superMenuList", superMenuList);
 		return "menu/list";	
 		
 	}
@@ -34,22 +37,23 @@ public class MenuCtl extends BaseCtl {
 	@RequestMapping(value="list2", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	@ResponseBody
 	public String list2(ModelMap mm){
-		List<Menu> superMenuList = this.menuService.getSuperMenuList();
+		
+		Pager pager = this.menuService.getSuperMenuList();
+		List<Menu> superMenuList = (List<Menu>) pager.getResults();
 		mm.put("json", JSONObject.toJSONString(superMenuList, features));
 		JSONObject json = new JSONObject();
 		json.put("draw", 1);
-		json.put("recordsTotal", superMenuList.size());
-		json.put("recordsFiltered", superMenuList.size());
-		json.put("data", superMenuList);
-		return json.toJSONString();
-//		return superMenuList;
+//		json.put("recordsTotal", superMenuList.size());
+//		json.put("recordsFiltered", superMenuList.size());
+//		json.put("data", superMenuList);
+		return JSONObject.toJSONString(superMenuList, features);
 	}
 	
 	@RequestMapping("transfer")
 	public String transfer(String id, String pid, String action, ModelMap mm){
 		Menu menu = null;
 		
-		List<Menu> superMenuList = this.menuService.getSuperMenuList();
+		List<Menu> superMenuList = (List<Menu>) this.menuService.getSuperMenuList().getResults();
 		mm.put("superMenuList", superMenuList);
 		
 		if(StringUtil.isNotBlank(id)){

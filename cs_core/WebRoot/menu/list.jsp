@@ -5,101 +5,83 @@
 
 <head>
 	<%@ include file="../common/head.jsp"%>
-	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台" />
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术" />
-
-    <!-- Data Tables -->
-    <link href="../res/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-	<script src="../res/js/plugins/jeditable/jquery.jeditable.js"></script>
-	<!-- Data Tables -->
-	<script src="../res/js/plugins/dataTables/jquery.dataTables.js"></script>
-	<script src="../res/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-	
+	<link href="../res/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
+    <script src="../res/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="../res/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="../res/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	    	<script>
+			$(document).ready(function(){
+			    $('#table1').bootstrapTable({
+			        url: "list2.cs",
+			        search: true,
+			        pagination: true,
+			        showRefresh: true,
+			        showToggle: true,
+			        showColumns: true,
+			        sidePagination:'server',//设置在哪里进行分页，可选值为 'client' 或者 'server'。
+			        pageSize:5,
+			        showPaginationSwitch:true,
+			        iconSize: 'outline',
+			        toolbar: '#exampleTableEventsToolbar',
+			        icons: {
+			          refresh: 'glyphicon-repeat',
+			          toggle: 'glyphicon-list-alt',
+			          columns: 'glyphicon-list'
+			        }
+			      });
+				
+			});
+		</script>
 </head>
 
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>基本 </h5>
-                    </div>
-                    <div class="ibox-content">
-                        <table class="table table-striped table-bordered table-hover dataTables-example">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>菜单id</th>
-                                    <th>菜单名称</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                            	<td>2</td>
-                            	<td>3</td>
-                            	<td>4</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+          <div class="ibox float-e-margins">
+              <div class="ibox-content">
+                  <div class="fixed-table-toolbar" id="exampleTableEventsToolbar" role="group">
+                      <button type="button" class="btn btn-outline btn-default">
+                          <i class="glyphicon glyphicon-plus" "false"></i>
+                      </button>
+                      <button type="button" class="btn btn-outline btn-default">
+                          <i class="glyphicon glyphicon-heart" aria-hidden="false"></i>
+                      </button>
+                      <button type="button" class="btn btn-outline btn-default">
+                          <i class="glyphicon glyphicon-trash" aria-hidden="false"></i>
+                      </button>
+                  </div>
+                  <table id="table1"  class="table table-striped tabl e-bordered table-hover dataTables-example" 
+                  	   data-toggle="table"
+				       data-url="list2.cs"
+				       data-method="get"
+				       data-query-params="queryParams"
+				       data-click-to-select="true"
+				       data-row-style="rowStyle"
+				       data-query-params="queryParams"
+				       data-pagination="true"
+				       data-search="true"
+				       data-height="450"
+				       data-data-type="json"
+				       data-show-refresh="true"
+				       data-search-on-enter-key="true"
+				       data-toolbar="#exampleTableEventsToolbar"
+						>
+                      <thead>
+                          <tr>
+                              <th ><input type="checkbox"/></th>
+                              <th data-field="id">菜单id</th>
+                              <th data-field="name">菜单名称</th>
+                          </tr>
+                      </thead>
+                  </table>
+              </div>
+          </div>
     </div>
-
-    <script>
-        $(document).ready(function () {
-        	
-            $('.dataTables-example').dataTable({
-                // "sAjaxSource":"2.txt"
-				"bLengthChange": false, //改变每页显示数据数量
-				"bFilter": false, //过滤功能
-				"bSort":false,
-				"iDisplayLength":12,
-				"ajax":'list2.cs',
-				"bServerSide": true, 
-				"select": true,//
-// 				"aoColumns": [
-// 					{ "mDataProp": "id" },
-// 					{ "mDataProp": "name" },
-// 					],
-				'columns':[
-					{
-						className: "td-checkbox",  
-		                orderable : false,  
-		                bSortable : false,  
-		                data : null,  
-		                render : function(data, type, row, meta) {  
-		                    var content = '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">';  
-		                    content += '    <input type="checkbox" class="group-checkable" value="' + data + '" />';  
-		                    content += '    <span></span>';  
-		                    content += '</label>';  
-		                    return content;  
-		                }  
-		            },
-					{'data':'id'},
-					{'data':'name'}
-				           ],
-
-// 				'columnDefs': [{
-// 			         'targets': 0,
-// 			         'searchable':false,
-// 			         'orderable':false,
-// 			         'className': 'dt-body-center',
-// 			         'data':null,
-// 			         'render': function (data, type, full, meta){
-// 			             return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
-// 			         }
-// 			      }],
-                //$_GET['sColumns']将接收到aoColumns传递数据
-            });
-        });
-    </script>
+    
 
 </body>
 

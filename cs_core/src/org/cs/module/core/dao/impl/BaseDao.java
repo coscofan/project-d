@@ -160,9 +160,10 @@ public class BaseDao<T> implements IBaseDao<T> {
 	}
 
 	@Override
-	public List<?> findByHql(final String hql, final Pager page, final Map<String, Object> params) {
-//		page.setTotal(countByHql(hql, params));
-
+	public List<?> _findPageByHql(final String hql, final Pager page, final Map<String, Object> params) {
+		if(page != null){
+			page.setTotal(countByHql(hql, params));
+		}
 		return hibernateTemplate.execute(new HibernateCallback<List<?>>() {
 
 			@Override
@@ -180,10 +181,17 @@ public class BaseDao<T> implements IBaseDao<T> {
 
 		});
 	}
+	
+
+	@Override
+	public List<?> findByHql(final String hql, final Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		return _findPageByHql(hql, null, params);
+	}
 
 	public Pager findPageByHql(final String hql, final Pager page, final Map<String, Object> params) {
 
-		List<?> results = findByHql(hql, page, params);
+		List<?> results = _findPageByHql(hql, page, params);
 		page.setResults(results);
 		return page;
 	}
@@ -204,8 +212,9 @@ public class BaseDao<T> implements IBaseDao<T> {
 	}
 
 	public List<?> findBySql(final String sql, final Pager page, final Map<String, Object> params) {
-
-		page.setTotal(countAllBySql(sql, params));
+		if(page != null){
+			page.setTotal(countAllBySql(sql, params));
+		}
 
 		return hibernateTemplate.execute(new HibernateCallback<List<?>>() {
 

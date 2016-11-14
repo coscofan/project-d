@@ -106,17 +106,16 @@ public class BaseService<T> implements IBaseService<T> {
 		return this.baseDao.update(t);
 	}
 	
-
 	@Override
-	public List<?> findByHql(String hql, Pager page, Map<String, Object> params) {
+	public Pager findPageByHql(String hql, Pager page, Map<String, Object> params) {
 		// TODO Auto-generated method stub
-		return this.baseDao.findByHql(hql, page, params);
+		return this.baseDao.findPageByHql(hql, page, params);
 	}
 
 	@Override
 	public List<?> findByHql(String hql, Map<String, Object> params) {
 		// TODO Auto-generated method stub
-		return findByHql(hql, null, params);
+		return this.baseDao.findByHql(hql, params);
 	}
 	
 	@Override
