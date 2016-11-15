@@ -119,7 +119,7 @@ $.extend({
 			  area: [options.width, options.height],
 			  fixed: false, //不固定
 			  maxmin: true,
-			  shade: 0.8,
+			  shade: 0.6,
 			  title:options.title,
 			  content: options.content
 			});
