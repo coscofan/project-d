@@ -19,8 +19,17 @@ public class Pager {
 	int end = 0;
 	private List<?> results;
 
+	public Pager(){}
+	
 	public Pager(int page) {
 		this.page = page;
+	}
+	
+	public Pager(int page, int pageSize) {
+		this.page = page;
+		if(pageSize != 0){
+			this.pageSize = pageSize;
+		}
 	}
 
 	public int getStart() {
@@ -40,7 +49,9 @@ public class Pager {
 	}
 
 	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
+		if(pageSize != 0){
+			this.pageSize = pageSize;
+		}
 	}
 
 	public long getTotal() {

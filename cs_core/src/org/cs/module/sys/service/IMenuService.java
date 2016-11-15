@@ -8,7 +8,9 @@ import org.cs.util.Pager;
 
 public interface IMenuService extends IBaseService<Menu> {
 
-	public Pager getSuperMenuList();
+	public Pager getSuperMenuList(Pager page);
+	
+	public List<Menu> getSuperMenuList();
 	
 	public List<Menu> getSecMenuList();
 	

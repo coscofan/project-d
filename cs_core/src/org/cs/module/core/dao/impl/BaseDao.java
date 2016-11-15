@@ -160,9 +160,9 @@ public class BaseDao<T> implements IBaseDao<T> {
 	}
 
 	@Override
-	public List<?> _findPageByHql(final String hql, final Pager page, final Map<String, Object> params) {
+	public List<?> _findByHql(final String hql, final Pager page, final Map<String, Object> params) {
 		if(page != null){
-			page.setTotal(countByHql(hql, params));
+			page.setTotal(countByHql("select count(*) " + hql, params));
 		}
 		return hibernateTemplate.execute(new HibernateCallback<List<?>>() {
 
@@ -186,12 +186,12 @@ public class BaseDao<T> implements IBaseDao<T> {
 	@Override
 	public List<?> findByHql(final String hql, final Map<String, Object> params) {
 		// TODO Auto-generated method stub
-		return _findPageByHql(hql, null, params);
+		return _findByHql(hql, null, params);
 	}
 
 	public Pager findPageByHql(final String hql, final Pager page, final Map<String, Object> params) {
 
-		List<?> results = _findPageByHql(hql, page, params);
+		List<?> results = _findByHql(hql, page, params);
 		page.setResults(results);
 		return page;
 	}
@@ -211,7 +211,7 @@ public class BaseDao<T> implements IBaseDao<T> {
 		});
 	}
 
-	public List<?> findBySql(final String sql, final Pager page, final Map<String, Object> params) {
+	public List<?> _findBySql(final String sql, final Pager page, final Map<String, Object> params) {
 		if(page != null){
 			page.setTotal(countAllBySql(sql, params));
 		}
@@ -288,7 +288,7 @@ public class BaseDao<T> implements IBaseDao<T> {
 
 	@Override
 	public Pager findPageBySql(String sql, Pager page, Map<String, Object> params) {
-		List<?> results = findBySql(sql, page, params);
+		List<?> results = _findBySql(sql, page, params);
 		page.setResults(results);
 		return page;
 	}
@@ -416,7 +416,6 @@ public class BaseDao<T> implements IBaseDao<T> {
 	public List<?> findBySql(String sql) {
 		// TODO Auto-generated method stub
 		return this.jdbcTemplate.queryForList(sql);
-//		return this.jdbcTemplate.queryForList(sql);
 	}
 	
 	

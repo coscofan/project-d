@@ -36,30 +36,26 @@ public class MenuCtl extends BaseCtl {
 	
 	@RequestMapping(value="list2", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public String list2(ModelMap mm){
-		
-		Pager pager = this.menuService.getSuperMenuList();
-		List<Menu> superMenuList = (List<Menu>) pager.getResults();
-		mm.put("json", JSONObject.toJSONString(superMenuList, features));
+	public String list2(int page, int pageSize, String search, ModelMap mm){
+//		public String list2(int limit,int offset,  ModelMap mm){
+		Pager pager = this.menuService.getSuperMenuList(new Pager(page, pageSize));
 		JSONObject json = new JSONObject();
-		json.put("draw", 1);
-//		json.put("recordsTotal", superMenuList.size());
-//		json.put("recordsFiltered", superMenuList.size());
-//		json.put("data", superMenuList);
-		return JSONObject.toJSONString(superMenuList, features);
+		json.put("rows", pager.getResults());
+		json.put("total", pager.getTotal());
+		return JSONObject.toJSONString(json, features);
 	}
 	
 	@RequestMapping("transfer")
 	public String transfer(String id, String pid, String action, ModelMap mm){
 		Menu menu = null;
 		
-		List<Menu> superMenuList = (List<Menu>) this.menuService.getSuperMenuList().getResults();
-		mm.put("superMenuList", superMenuList);
-		
-		if(StringUtil.isNotBlank(id)){
-			menu = this.menuService.findById(Integer.valueOf(id.trim()));
-			mm.put("menu", menu);
-		}
+//		List<Menu> superMenuList = (List<Menu>) this.menuService.getSuperMenuList().getResults();
+//		mm.put("superMenuList", superMenuList);
+//		
+//		if(StringUtil.isNotBlank(id)){
+//			menu = this.menuService.findById(Integer.valueOf(id.trim()));
+//			mm.put("menu", menu);
+//		}
 		
 		return "menu/" + action;
 	}

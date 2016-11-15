@@ -14,29 +14,38 @@
     <script src="../res/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
     <script src="../res/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
     <script src="../res/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
-	    	<script>
-			$(document).ready(function(){
-			    $('#table1').bootstrapTable({
-			        url: "list2.cs",
-			        search: true,
-			        pagination: true,
-			        showRefresh: true,
-			        showToggle: true,
-			        showColumns: true,
-			        sidePagination:'server',//设置在哪里进行分页，可选值为 'client' 或者 'server'。
-			        pageSize:5,
-			        showPaginationSwitch:true,
-			        iconSize: 'outline',
-			        toolbar: '#exampleTableEventsToolbar',
-			        icons: {
-			          refresh: 'glyphicon-repeat',
-			          toggle: 'glyphicon-list-alt',
-			          columns: 'glyphicon-list'
-			        }
-			      });
+    <script>
+    	function queryParams(params){
+    		var page = params.offset / params.limit + 1;
+    		return  { page:page, pageSize:params.limit, search:params.search, sort:params.sort,order:params.order};  
+    	}
+    	
+    	function view(){
+    		alert('xx');
+    	}
+    	
+    	
+    	$(function(){
+    		$('#table1').on('dbl-click-row.bs.table', function(e, value, row, $element){
+//     		    alert(value['id']);
+//     			 layer.open({
+//     				  type: 1,
+//     				  area: ['600px', '360px'],
+//     				  shadeClose: true, //点击遮罩关闭
+//     				  content: '\<\div style="padding:20px;">自定义内容\<\/div>'
+//     				  });
 				
-			});
-		</script>
+// 				$.open({
+// 					width:'700px',
+// 					height:'530px',
+// 					content:'eeee'
+// 				});
+				$.showPic('http://pic6.huitu.com/res/20130116/84481_20130116142820494200_1.jpg');
+    		}
+    		);
+     	});
+    	
+    </script>
 </head>
 
 <body class="gray-bg">
@@ -45,7 +54,7 @@
               <div class="ibox-content">
                   <div class="fixed-table-toolbar" id="exampleTableEventsToolbar" role="group">
                       <button type="button" class="btn btn-outline btn-default">
-                          <i class="glyphicon glyphicon-plus" "false"></i>
+                          <i class="glyphicon glyphicon-plus" aria-hidden="false"></i>
                       </button>
                       <button type="button" class="btn btn-outline btn-default">
                           <i class="glyphicon glyphicon-heart" aria-hidden="false"></i>
@@ -54,25 +63,24 @@
                           <i class="glyphicon glyphicon-trash" aria-hidden="false"></i>
                       </button>
                   </div>
-                  <table id="table1"  class="table table-striped tabl e-bordered table-hover dataTables-example" 
+                  <table id="table1"  class="table table-striped table-bordered table-hover dataTables-example" 
                   	   data-toggle="table"
 				       data-url="list2.cs"
 				       data-method="get"
-				       data-query-params="queryParams"
 				       data-click-to-select="true"
 				       data-row-style="rowStyle"
-				       data-query-params="queryParams"
 				       data-pagination="true"
 				       data-search="true"
-				       data-height="450"
 				       data-data-type="json"
 				       data-show-refresh="true"
 				       data-search-on-enter-key="true"
 				       data-toolbar="#exampleTableEventsToolbar"
+				       data-side-pagination="server"
+				       data-query-params="queryParams"
 						>
                       <thead>
                           <tr>
-                              <th ><input type="checkbox"/></th>
+                              <th data-radio="true"	data-click-to-select="true"></th>
                               <th data-field="id">菜单id</th>
                               <th data-field="name">菜单名称</th>
                           </tr>

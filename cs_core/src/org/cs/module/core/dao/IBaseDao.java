@@ -126,15 +126,27 @@ public interface IBaseDao<T> {
 	 */
 	public List<Map<String, Object>> findAll(String sql);
 
+	/**
+	 * 
+	 * @param hql
+	 * @param params
+	 * @return
+	 */
 	List<?> findByHql(String hql, Map<String, Object> params);
 	
 	Long countByHql(String hql, Map<String, Object> params);
-
+	/**
+	 * 
+	 * @param hql
+	 * @param page			分页对象
+	 * @param params 		查询参数
+	 * @return
+	 */
 	Pager findPageByHql(final String hql, final Pager page, final Map<String, Object> params);
 	
-	List<?> _findPageByHql(final String hql, final Pager page, final Map<String, Object> params);
+	List<?> _findByHql(final String hql, final Pager page, final Map<String, Object> params);
 	
-	List<?> findBySql(String sql, Pager page, Map<String, Object> params);
+	List<?> _findBySql(String sql, Pager page, Map<String, Object> params);
 	
 	public <E> E findBySql(String sql, Class<E> clazz);
 	

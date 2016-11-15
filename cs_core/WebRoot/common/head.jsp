@@ -6,6 +6,11 @@
 <script src="../res/js/jquery.min.js"></script>
 <script src="../res/js/bootstrap.min.js"></script>
 
+ <script src="../res/js/plugins/validate/jquery.validate.min.js"></script>
+ <script src="../res/js/plugins/validate/messages_zh.min.js"></script>
+<script src="../res/js/plugins/layer/layer.min.js"></script>
+
+ <script src="../res/js/common.js"></script>
 
 <!-- 第三方插件 -->
 <!-- <script src="../res/js/plugins/pace/pace.min.js"></script> -->
